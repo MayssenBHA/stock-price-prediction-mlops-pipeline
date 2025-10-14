@@ -1,0 +1,22 @@
+{
+    "n_timestamp": 1,
+    "train_min": -3.8000000000000007,
+    "train_max": 21.0,
+    "training_set_min": -4.400000000000006,
+    "training_set_max": 21.0,
+    "feature_columns": [
+        "var1(t-1)",
+        "var2(t-1)",
+        "var3(t-1)",
+        "var4(t-1)",
+        "var5(t-1)",
+        "var6(t-1)",
+        "var1(t)",
+        "var2(t)",
+        "var3(t)",
+        "var4(t)",
+        "var5(t)",
+        "var6(t)"
+    ],
+    "arima_order": "(0,1,0)"
+}

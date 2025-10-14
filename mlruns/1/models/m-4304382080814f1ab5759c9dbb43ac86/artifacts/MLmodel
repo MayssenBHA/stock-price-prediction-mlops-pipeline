@@ -1,0 +1,32 @@
+artifact_path: file:///c:/Users/mayssen/Desktop/project/mlruns/1/models/m-4304382080814f1ab5759c9dbb43ac86/artifacts
+flavors:
+  python_function:
+    artifacts:
+      arima_model:
+        path: artifacts\model_ARIMA.pkl
+        uri: model_ARIMA.pkl
+      keras_model:
+        path: artifacts\stock_model.h5
+        uri: stock_model.h5
+      metadata:
+        path: artifacts\cnn_lstm_metadata.json
+        uri: cnn_lstm_metadata.json
+      scaler:
+        path: artifacts\stock_normalize.npy
+        uri: stock_normalize.npy
+    cloudpickle_version: 3.1.1
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.10.0
+    streamable: false
+mlflow_version: 3.4.0
+model_id: m-4304382080814f1ab5759c9dbb43ac86
+model_size_bytes: 1725178
+model_uuid: m-4304382080814f1ab5759c9dbb43ac86
+prompts: null
+run_id: 1ecbe9987b7446be8724dfdb1248a28d
+utc_time_created: '2025-10-14 14:13:34.617543'

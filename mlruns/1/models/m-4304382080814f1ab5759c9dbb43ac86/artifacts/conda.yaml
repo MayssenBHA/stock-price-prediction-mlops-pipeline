@@ -1,0 +1,15 @@
+channels:
+- defaults
+- conda-forge
+dependencies:
+- python=3.10
+- pip
+- pip:
+  - mlflow
+  - pandas
+  - numpy
+  - scikit-learn
+  - tensorflow
+  - statsmodels
+  - keras
+name: att_cnn_lstm_env

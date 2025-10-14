@@ -1,0 +1,24 @@
+{
+    "model_type": "Attention_CNN_LSTM",
+    "time_steps": 6,
+    "input_features": 6,
+    "train_min": 12.0,
+    "train_max": 47.5,
+    "feature_columns": [
+        "close",
+        "open",
+        "high",
+        "low",
+        "nmVolume",
+        "0"
+    ],
+    "input_columns": [
+        "close",
+        "open",
+        "high",
+        "low",
+        "nmVolume"
+    ],
+    "arima_order": "(0,1,0)",
+    "scaler_fitted_on": "training_set"
+}
