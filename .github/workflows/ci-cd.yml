@@ -201,7 +201,7 @@ jobs:
   # ==========================================================================
   # JOB 5: Deploy with Docker Compose (CD)
   # ==========================================================================
-  # Deploy the application locally using docker-compose
+  # Deploy the application locally using docker compose
   # This simulates deployment; adapt for production environments
   # Only runs on actual pushes to deployment branch (NOT on pull requests)
   # ==========================================================================
@@ -231,23 +231,23 @@ jobs:
           mkdir -p backend/saved_models
           mkdir -p backend/uploads
       
-      # Step 4: Deploy using docker-compose
-      # Note: This runs docker-compose in CI environment
-      # For production, consider using docker-compose on a remote server
+      # Step 4: Deploy using docker compose
+      # Note: This runs docker compose in CI environment
+      # For production, consider using docker compose on a remote server
       - name: Deploy Application
         run: |
           # Pull latest images
-          docker-compose pull
+          docker compose pull
           
           # Start services in detached mode
-          docker-compose up -d
+          docker compose up -d
           
           # Wait for services to be healthy
           echo "Waiting for services to start..."
           sleep 10
           
           # Check service status
-          docker-compose ps
+          docker compose ps
       
       # Step 5: Verify deployment
       - name: Verify Deployment
@@ -260,14 +260,14 @@ jobs:
           
           # Display container logs for debugging
           echo "=== Backend Logs ==="
-          docker-compose logs backend
+          docker compose logs backend
           echo "=== Frontend Logs ==="
-          docker-compose logs frontend
+          docker compose logs frontend
       
       # Step 6: Cleanup (optional - for CI environment)
       # Comment out this step if deploying to a persistent environment
       - name: Cleanup Containers
         if: always()
         run: |
-          docker-compose down -v
+          docker compose down -v
         continue-on-error: true
