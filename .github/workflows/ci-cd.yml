@@ -26,6 +26,7 @@ env:
   PYTHON_VERSION: '3.9'           # Python version from backend Dockerfile
   NODE_VERSION: '18'              # Node version from frontend Dockerfile
   REGISTRY: docker.io             # Docker registry (Docker Hub)
+  DOCKER_USERNAME: mayssenbha     # Docker Hub username (public, not sensitive)
 
 # ============================================================================
 # Jobs Definition
@@ -106,9 +107,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-backend]  # Wait for backend tests to complete
     
-    env:
-      DOCKER_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-    
     steps:
       # Step 1: Checkout repository code
       - name: Checkout Code
@@ -159,9 +157,6 @@ jobs:
     name: Build & Push Frontend Image
     runs-on: ubuntu-latest
     needs: [test-backend]  # Wait for backend tests to complete
-    
-    env:
-      DOCKER_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
     
     steps:
       # Step 1: Checkout repository code
