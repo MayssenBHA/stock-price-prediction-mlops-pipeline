@@ -139,8 +139,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/stock-prediction-backend:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/stock-prediction-backend:buildcache,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
   
   # ==========================================================================
   # JOB 4: Build and Push Frontend Docker Image (CD)
@@ -190,8 +190,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/stock-prediction-frontend:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/stock-prediction-frontend:buildcache,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
   
   # ==========================================================================
   # JOB 5: Deploy with Docker Compose (CD)
