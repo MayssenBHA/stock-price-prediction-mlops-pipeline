@@ -106,6 +106,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-backend]  # Wait for backend tests to complete
     
+    env:
+      DOCKER_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+    
     steps:
       # Step 1: Checkout repository code
       - name: Checkout Code
@@ -128,7 +131,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/stock-prediction-backend
+          images: ${{ env.REGISTRY }}/${{ env.DOCKER_USERNAME }}/stock-prediction-backend
           tags: |
             type=ref,event=branch
             type=sha,prefix={{branch}}-
@@ -157,6 +160,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test-backend]  # Wait for backend tests to complete
     
+    env:
+      DOCKER_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+    
     steps:
       # Step 1: Checkout repository code
       - name: Checkout Code
@@ -179,7 +185,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ secrets.REGISTRY_USERNAME }}/stock-prediction-frontend
+          images: ${{ env.REGISTRY }}/${{ env.DOCKER_USERNAME }}/stock-prediction-frontend
           tags: |
             type=ref,event=branch
             type=sha,prefix={{branch}}-
