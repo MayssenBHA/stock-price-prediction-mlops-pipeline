@@ -46,8 +46,10 @@ jobs:
       # Step 1: Checkout repository code
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
       
-      # Step 2: Verify repository structure
+      # Step 2: Verify repository structure and test file content
       - name: List Directory Contents
         run: |
           echo "Current directory:"
@@ -56,6 +58,8 @@ jobs:
           ls -la
           echo "Checking for backend directory:"
           ls -la backend/ || echo "Backend directory not found"
+          echo "Checking test file content (first 35 lines):"
+          head -n 35 backend/tests/test_data_processor.py
       
       # Step 3: Set up Python environment
       - name: Set up Python ${{ env.PYTHON_VERSION }}
